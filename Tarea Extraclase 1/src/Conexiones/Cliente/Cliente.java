@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 public class Cliente {
     public static void main(String[] args) {
-        final Socket clienteSocket;
-        final BufferedReader dentro;
-        final PrintWriter fuera;
-        final Scanner sc = new Scanner(System.in);
+        final Socket clienteSocket;//Se utiliza para enviar y recibir los datos del servidor
+        final BufferedReader dentro;//Lee los datos que entran del socket
+        final PrintWriter fuera;//Escribe los datos que salen del socket
+        final Scanner sc = new Scanner(System.in);// permite el ingreso de datos por parte del teclado de la computadora
         try{
-            clienteSocket = new Socket("127.0.0.1",5000);
+            clienteSocket = new Socket("127.0.0.1",5000);// son los parametros utilizados para poder establecer conexión entre el servidor y el cliente
             fuera = new PrintWriter(clienteSocket.getOutputStream());
             dentro = new BufferedReader(new InputStreamReader(clienteSocket.getInputStream()));
 
@@ -43,7 +43,7 @@ public class Cliente {
                             System.out.println("Server: " +msg);
                             msg = dentro.readLine();
                         }
-                        System.out.println("Server fuera de servicio");
+                        System.out.println("Servidor fuera de servicio");
                         fuera.close();
                         clienteSocket.close();
                     } catch (IOException e) {

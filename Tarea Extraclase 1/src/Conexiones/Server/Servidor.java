@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class Servidor {
     public static void main(String[] args) {
-        final ServerSocket serverSocket;
-        final Socket clienteSocket;
-        final BufferedReader dentro;
-        final PrintWriter fuera;
+        final ServerSocket serverSocket;// Se necesita para enviar y recibir información del cliente
+        final Socket clienteSocket;// Se necesita para eviar y recibir información del cliente
+        final BufferedReader dentro;// Se utiliza para leer la información que llega del cliente
+        final PrintWriter fuera;//Se utiliza para escribir información que se le envia al cliente
         final Scanner sc = new Scanner(System.in);
         try {
-            serverSocket = new ServerSocket(5000);
+            serverSocket = new ServerSocket(5000);//Puerto al cual se conecta el socket
             clienteSocket = serverSocket.accept();
             fuera = new PrintWriter(clienteSocket.getOutputStream());
             dentro = new BufferedReader(new InputStreamReader(clienteSocket.getInputStream()));
