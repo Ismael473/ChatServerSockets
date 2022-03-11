@@ -26,7 +26,7 @@ public class Servidor {
 
                 @Override
                 public void run() {
-                    while (true) {
+                    while (true) {//Mientras esto corra se escribiran y enviaran los mensajes que se envien al cliente en la terminal del servidor
                         msg = sc.nextLine();
                         fuera.println(msg);
                         fuera.flush();
@@ -42,12 +42,12 @@ public class Servidor {
                 public void run() {
                     try {
                         msg = dentro.readLine();
-                        while (msg != null) {
+                        while (msg != null) {//Mientras esto corra se recibiran y se imprimiran en la terminal los mensajes recibidos por el cliente
                             System.out.println("Cliente:" + msg);
                             msg = dentro.readLine();
 
                         }
-                        System.out.println("Cliente desconectado");
+                        System.out.println("Cliente desconectado");// Esto
                         fuera.close();
                         clienteSocket.close();
                         serverSocket.close();

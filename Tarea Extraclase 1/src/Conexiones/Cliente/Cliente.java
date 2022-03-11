@@ -24,7 +24,7 @@ public class Cliente {
                 String msg;
                 @Override
                 public void run() {
-                    while(true){
+                    while(true){// Mientras esto corra se escribiran y enviarán los mensajes al servidor
                         msg = sc.nextLine();
                         fuera.println(msg);
                         fuera.flush();
@@ -39,7 +39,7 @@ public class Cliente {
                 public void run() {
                     try{
                         msg = dentro.readLine();
-                        while(msg != null){
+                        while(msg != null){//Mientras eto corra se recibiran e imprimiran en pantalla los mensajes recibidos por parte del servidor
                             System.out.println("Server: " +msg);
                             msg = dentro.readLine();
                         }
